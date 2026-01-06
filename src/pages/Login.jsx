@@ -6,42 +6,45 @@ const Login = () => {
     <div className="min-h-screen flex font-sans">
       {/* Left Side - Premium Aesthetic Background */}
       <div className="hidden lg:flex lg:w-1/2 bg-primary relative overflow-hidden items-center justify-center">
-        {/* Grid Pattern Overlay */}
+        {/* Sophisticated Dotted Grid */}
         <div 
-          className="absolute inset-0 opacity-10"
+          className="absolute inset-0 opacity-[0.15]"
           style={{
-            backgroundImage: `linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)`,
-            backgroundSize: '50px 50px'
+            backgroundImage: `radial-gradient(rgba(255,255,255,0.3) 1px, transparent 0)`,
+            backgroundSize: '32px 32px'
           }}
-        ></div>
+        />
 
-        {/* White Geometric Shapes */}
-        <div className="absolute top-[-5%] right-[-5%] w-64 h-64 border-[1px] border-white/10 rotate-12"></div>
-        <div className="absolute bottom-10 left-10 w-32 h-32 border-[1px] border-white/10 -rotate-12"></div>
-        <div className="absolute top-1/2 right-10 w-40 h-[1px] bg-white/10"></div>
-        <div className="absolute top-1/2 right-10 h-40 w-[1px] bg-white/10"></div>
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-white/20 rounded-full"></div>
-        <div className="absolute bottom-1/4 right-1/3 w-3 h-3 bg-white/10 rounded-full"></div>
+        {/* Large Architectural Shapes */}
+        <div className="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] border border-white/[0.05] rotate-[15deg] pointer-events-none"></div>
+        <div className="absolute bottom-[-10%] right-[-10%] w-[500px] h-[500px] border border-white/[0.03] -rotate-[10deg] pointer-events-none"></div>
         
-        {/* Abstract White Lines */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-0 left-1/2 w-[1px] h-full bg-gradient-to-b from-transparent via-white/5 to-transparent"></div>
-          <div className="absolute top-1/2 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-white/5 to-transparent"></div>
+        {/* Decorative UI Markers */}
+        <div className="absolute top-1/2 left-10 w-12 h-[1px] bg-white/20"></div>
+        <div className="absolute top-1/2 left-10 w-[1px] h-12 bg-white/20"></div>
+        <div className="absolute bottom-20 right-20 flex space-x-2">
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="w-1.5 h-1.5 bg-white/20 rounded-full"></div>
+          ))}
+        </div>
+
+        {/* Abstract Geometric Composition */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
+          <div className="w-[800px] h-[800px] border-[0.5px] border-white/20 rounded-full scale-150"></div>
+          <div className="absolute w-[600px] h-[600px] border-[0.5px] border-white/10 rounded-full"></div>
+          <div className="absolute w-[400px] h-[400px] border-[0.5px] border-white/5 rounded-full"></div>
         </div>
         
-        <div className="relative z-10 px-16 text-left w-full max-w-2xl">
-          <h1 className="text-7xl font-black text-white mb-8 tracking-tighter leading-[0.9]">
-            Skoodex<span className="text-white/30">.</span>
-          </h1>
-          
-          <div className="space-y-6">
-            <p className="text-white/90 text-2xl font-light leading-snug">
-              The next generation of <span className="text-white font-semibold border-b border-white/30">school management</span>. 
-            </p>
-            <p className="text-white/50 text-lg max-w-md font-normal leading-relaxed">
-              Experience a seamless, powerful, and intuitive interface designed to empower educators and administrators worldwide.
-            </p>
+        <div className="relative z-10 px-20 text-center w-full max-w-3xl">
+          <div className="mb-12">
+            <h1 className="text-8xl font-black text-white mb-8 tracking-tighter leading-[0.85]">
+              Skoodex<span className="text-white/20">.</span>
+            </h1>
           </div>
+          
+          <p className="text-white/90 text-3xl font-light leading-tight tracking-tight max-w-xl mx-auto">
+            Empowering the <span className="text-white font-semibold italic">future of education</span> through intelligent management.
+          </p>
         </div>
       </div>
 
