@@ -1,4 +1,3 @@
-import React from 'react';
 import Input from '../components/Input';
 import Button from '../components/Button';
 
@@ -21,12 +20,6 @@ const Login = () => {
             The next generation of <span className="text-white font-medium">school management</span>. 
             Simple, powerful, and built for the future.
           </p>
-          
-          <div className="mt-12 flex items-center justify-center space-x-4">
-            <div className="h-[1px] w-12 bg-white/20"></div>
-            <span className="text-white/40 text-sm uppercase tracking-[0.3em] font-bold">Excellence</span>
-            <div className="h-[1px] w-12 bg-white/20"></div>
-          </div>
         </div>
       </div>
 
@@ -70,17 +63,6 @@ const Login = () => {
           </form>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes float {
-          0% { transform: translateY(0px); }
-          50% { transform: translateY(-10px); }
-          100% { transform: translateY(0px); }
-        }
-        .animate-float {
-          animation: float 4s ease-in-out infinite;
-        }
-      `}</style>
     </div>
   );
 };
