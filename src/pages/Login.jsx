@@ -52,10 +52,10 @@ const Login = () => {
       <div className="w-full lg:w-1/2 flex flex-col justify-center items-center p-8 bg-white">
         <div className="w-full max-w-md">
           <div className="mb-12">
-            <h2 className="text-4xl font-black text-gray-900 mb-3 tracking-tight">
-              Login
+            <h2 className="text-4xl font-black text-gray-900 mb-2 tracking-tight">
+              Let’s signed in
             </h2>
-            <p className="text-gray-500 font-medium">
+            <p className="text-gray-500">
               Enter your credentials to access your school.
             </p>
           </div>
