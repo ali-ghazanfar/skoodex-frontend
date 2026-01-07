@@ -1,3 +1,11 @@
+export const REQUIRED_FIELD_MESSAGE = 'This field is required';
+export const CNIC_REGEX = /^\d{5}-\d{7}-\d{1}$/;
+export const CNIC_ERROR_MESSAGE = 'CNIC must be in format XXXXX-XXXXXXX-X';
+export const PHONE_NUMBER_REGEX = /^(\+92|0)?[0-9]{10}$/;
+export const PHONE_NUMBER_ERROR_MESSAGE = 'Invalid phone number format';
+export const SALARY_REGEX = /^\d+(\.\d{1,2})?$/;
+export const SALARY_ERROR_MESSAGE = 'Invalid salary format';
+
 // Student Options
 export const gradeOptions = [
   { value: 'pre-k', label: 'Pre-K' },
@@ -110,6 +118,42 @@ export const relationshipOptions = [
   { value: 'Sponsor', label: 'Sponsor' },
   { value: 'Neighbor', label: 'Neighbor' },
   { value: 'Other', label: 'Other' },
+];
+
+// Staff Options
+export const designationOptions = [
+  { value: 'Principal', label: 'Principal' },
+  { value: 'Vice Principal', label: 'Vice Principal' },
+  { value: 'Head Teacher', label: 'Head Teacher' },
+  { value: 'Senior Teacher', label: 'Senior Teacher' },
+  { value: 'Teacher', label: 'Teacher' },
+  { value: 'Assistant Teacher', label: 'Assistant Teacher' },
+  { value: 'Subject Specialist', label: 'Subject Specialist' },
+  { value: 'Librarian', label: 'Librarian' },
+  { value: 'Lab Assistant', label: 'Lab Assistant' },
+  { value: 'Accountant', label: 'Accountant' },
+  { value: 'Clerk', label: 'Clerk' },
+  { value: 'Security Guard', label: 'Security Guard' },
+  { value: 'Janitor', label: 'Janitor' },
+  { value: 'Driver', label: 'Driver' },
+  { value: 'Cook', label: 'Cook' },
+  { value: 'Other', label: 'Other' },
+];
+
+export const staffStatusOptions = [
+  { value: 'Active', label: 'Active' },
+  { value: 'On Leave', label: 'On Leave' },
+  { value: 'Suspended', label: 'Suspended' },
+  { value: 'Resigned', label: 'Resigned' },
+  { value: 'Terminated', label: 'Terminated' },
+  { value: 'Retired', label: 'Retired' },
+];
+
+export const maritalStatusOptions = [
+  { value: 'Single', label: 'Single' },
+  { value: 'Married', label: 'Married' },
+  { value: 'Divorced', label: 'Divorced' },
+  { value: 'Widowed', label: 'Widowed' },
 ];
 
 // Student Data
@@ -374,6 +418,65 @@ export const guardiansData = [
     cnic: '01234-0123456-0',
     phoneNumber: '+92 309 0123456',
     occupation: 'Government Employee',
+    profilePicture: null,
+  },
+];
+
+// Staff Data
+export const staffData = [
+  {
+    id: 1,
+    fullName: 'Ahmed Khan',
+    surname: 'Khan',
+    cnic: '12345-1234567-1',
+    phoneNumber: '+92 300 1234567',
+    designation: 'Principal',
+    status: 'Active',
+    gender: 'Male',
+    profilePicture: null,
+  },
+  {
+    id: 2,
+    fullName: 'Fatima Ali',
+    surname: 'Ali',
+    cnic: '23456-2345678-2',
+    phoneNumber: '+92 301 2345678',
+    designation: 'Head Teacher',
+    status: 'Active',
+    gender: 'Female',
+    profilePicture: null,
+  },
+  {
+    id: 3,
+    fullName: 'Hassan Raza',
+    surname: 'Raza',
+    cnic: '34567-3456789-3',
+    phoneNumber: '+92 302 3456789',
+    designation: 'Senior Teacher',
+    status: 'Active',
+    gender: 'Male',
+    profilePicture: null,
+  },
+  {
+    id: 4,
+    fullName: 'Ayesha Malik',
+    surname: 'Malik',
+    cnic: '45678-4567890-4',
+    phoneNumber: '+92 303 4567890',
+    designation: 'Teacher',
+    status: 'Active',
+    gender: 'Female',
+    profilePicture: null,
+  },
+  {
+    id: 5,
+    fullName: 'Usman Shah',
+    surname: 'Shah',
+    cnic: '56789-5678901-5',
+    phoneNumber: '+92 304 5678901',
+    designation: 'Accountant',
+    status: 'Active',
+    gender: 'Male',
     profilePicture: null,
   },
 ];

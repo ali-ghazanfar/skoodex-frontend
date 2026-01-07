@@ -6,6 +6,8 @@ import Students from './pages/students/Students';
 import CreateStudent from './pages/students/CreateStudent';
 import Guardians from './pages/guardians/Guardians';
 import CreateGuardian from './pages/guardians/CreateGuardian';
+import Staff from './pages/staff/Staff';
+import CreateStaff from './pages/staff/CreateStaff';
 
 function App() {
   return (
@@ -41,6 +43,22 @@ function App() {
           element={
             <MainLayout>
               <CreateGuardian />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/staff"
+          element={
+            <MainLayout>
+              <Staff />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/staff/create"
+          element={
+            <MainLayout>
+              <CreateStaff />
             </MainLayout>
           }
         />
