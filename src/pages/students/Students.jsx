@@ -4,12 +4,15 @@ import { Link } from 'react-router-dom';
 import Button from '../../components/Button';
 import Table from '../../components/Table';
 import FormSelect from '../../components/FormSelect';
+import DeleteModal from '../../components/DeleteModal';
 import { gradeOptions } from '../../constants/studentOptions';
-import { Search, Edit, Trash } from '../../svgs';
+import { Search, Edit, Trash, Eye } from '../../svgs';
 
 const Students = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedGrade, setSelectedGrade] = useState('');
+  const [deleteModalOpen, setDeleteModalOpen] = useState(false);
+  const [selectedStudent, setSelectedStudent] = useState(null);
 
   // Dummy data
   const students = [
@@ -193,11 +196,32 @@ const Students = () => {
     },
   ];
 
+  // Handle delete
+  const handleDeleteClick = (student) => {
+    setSelectedStudent(student);
+    setDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = () => {
+    if (selectedStudent) {
+      // TODO: Implement actual delete API call
+      console.log('Deleting student:', selectedStudent.id);
+      // After successful delete, close modal and refresh data
+      setDeleteModalOpen(false);
+      setSelectedStudent(null);
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setDeleteModalOpen(false);
+    setSelectedStudent(null);
+  };
+
   // Table columns configuration
   const columns = useMemo(() => [
     {
       key: 'rollNumber',
-      header: 'Roll #',
+      header: 'Roll Number',
       accessor: 'rollNumber',
       render: (row) => (
         <div className="text-sm font-medium text-gray-900">{row.rollNumber}</div>
@@ -205,7 +229,7 @@ const Students = () => {
     },
     {
       key: 'registrationNumber',
-      header: 'REG #',
+      header: 'Registration Number',
       accessor: 'registrationNumber',
       render: (row) => (
         <div className="text-sm font-medium text-gray-900">{row.registrationNumber}</div>
@@ -269,10 +293,16 @@ const Students = () => {
       align: 'right',
       render: (row) => (
         <div className="flex items-center justify-end gap-1">
-          <button className="p-2 rounded-lg hover:bg-primary/10 text-gray-500 hover:text-primary transition-all">
+          <button className="p-2 rounded-lg text-gray-500 hover:text-primary transition-all">
+            <Eye className="w-5 h-5" />
+          </button>
+          <button className="p-2 rounded-lg text-gray-500 hover:text-primary transition-all">
             <Edit className="w-5 h-5" />
           </button>
-          <button className="p-2 rounded-lg hover:bg-red-50 text-gray-500 hover:text-red-600 transition-all">
+          <button
+            onClick={() => handleDeleteClick(row)}
+            className="p-2 rounded-lg text-gray-500 hover:text-red-600 transition-all"
+          >
             <Trash className="w-5 h-5" />
           </button>
         </div>
@@ -321,6 +351,15 @@ const Students = () => {
         currentPage={1}
         totalPages={2}
         onPageChange={() => {}}
+      />
+
+      {/* Delete Modal */}
+      <DeleteModal
+        title="Delete Student"
+        isOpen={deleteModalOpen}
+        onClose={handleDeleteCancel}
+        onConfirm={handleDeleteConfirm}
+        message="Are you sure you want to delete this student? This action cannot be undone."
       />
     </div>
   );
