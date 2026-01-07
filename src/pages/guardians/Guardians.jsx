@@ -1,108 +1,89 @@
-import { useState, useMemo } from 'react';
 import { Link } from 'react-router-dom';
+import { useState, useMemo } from 'react';
 
-import Button from '../../components/Button';
 import Table from '../../components/Table';
+import Button from '../../components/Button';
 import FormSelect from '../../components/FormSelect';
 import DeleteModal from '../../components/DeleteModal';
-import { gradeOptions, studentsData } from '../../constants/constants';
 import { Search, Edit, Trash, Eye } from '../../svgs';
+import { occupationOptions, guardiansData } from '../../constants/constants';
 
-const Students = () => {
+const Guardians = () => {
   const [searchQuery, setSearchQuery] = useState('');
-  const [selectedGrade, setSelectedGrade] = useState('');
   const [deleteModalOpen, setDeleteModalOpen] = useState(false);
-  const [selectedStudent, setSelectedStudent] = useState(null);
+  const [selectedGuardian, setSelectedGuardian] = useState(null);
+  const [selectedOccupation, setSelectedOccupation] = useState('');
 
   // Handle delete
-  const handleDeleteClick = (student) => {
-    setSelectedStudent(student);
+  const handleDeleteClick = (guardian) => {
+    setSelectedGuardian(guardian);
     setDeleteModalOpen(true);
   };
 
   const handleDeleteConfirm = () => {
-    if (selectedStudent) {
+    if (selectedGuardian) {
       // TODO: Implement actual delete API call
-      console.log('Deleting student:', selectedStudent.id);
+      console.log('Deleting guardian:', selectedGuardian.id);
       // After successful delete, close modal and refresh data
       setDeleteModalOpen(false);
-      setSelectedStudent(null);
+      setSelectedGuardian(null);
     }
   };
 
   const handleDeleteCancel = () => {
     setDeleteModalOpen(false);
-    setSelectedStudent(null);
+    setSelectedGuardian(null);
   };
 
   // Table columns configuration
   const columns = useMemo(() => [
     {
-      key: 'rollNumber',
-      header: 'Roll Number',
-      accessor: 'rollNumber',
-      render: (row) => (
-        <div className="text-sm font-medium text-gray-900">{row.rollNumber}</div>
-      ),
-    },
-    {
-      key: 'registrationNumber',
-      header: 'Registration Number',
-      accessor: 'registrationNumber',
-      render: (row) => (
-        <div className="text-sm font-medium text-gray-900">{row.registrationNumber}</div>
-      ),
-    },
-    {
-      key: 'student',
-      header: 'Student',
-      render: (row) => (
-        <div className="flex items-center gap-3">
-          <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
-            {row.fullName.charAt(0)}
-          </div>
-          <div>
-            <div className="text-sm font-semibold text-gray-900">
-              {row.fullName} {row.surname}
-            </div>
-          </div>
-        </div>
-      ),
-    },
-    {
       key: 'guardian',
       header: 'Guardian',
       render: (row) => (
-        <div>
-          <div className="text-sm font-medium text-gray-900">{row.guardianName}</div>
-          <div className="text-xs text-gray-500 mt-0.5">{row.guardianRelationship}</div>
+        <div className="flex items-center gap-3">
+          {row.profilePicture ? (
+            <img
+              src={row.profilePicture}
+              alt={row.fullName}
+              className="w-11 h-11 rounded-xl object-cover"
+            />
+          ) : (
+            <div className="w-11 h-11 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-bold text-sm">
+              {row.fullName.charAt(0)}
+            </div>
+          )}
+          <div>
+            <div className="text-sm font-semibold text-gray-900">
+              {row.fullName}
+            </div>
+            <div className="text-xs text-gray-500 mt-0.5">{row.occupation}</div>
+          </div>
         </div>
       ),
     },
     {
-      key: 'grade',
-      header: 'Grade',
-      accessor: 'grade',
+      key: 'cnic',
+      header: 'CNIC',
+      accessor: 'cnic',
       render: (row) => (
-        <div className="text-sm font-medium text-gray-900">{row.grade}</div>
+        <div className="text-sm font-medium text-gray-900">{row.cnic}</div>
       ),
     },
     {
-      key: 'gender',
-      header: 'Gender',
-      accessor: 'gender',
+      key: 'phoneNumber',
+      header: 'Phone Number',
+      accessor: 'phoneNumber',
       render: (row) => (
-        <div className="text-sm text-gray-900">{row.gender}</div>
+        <div className="text-sm text-gray-900">{row.phoneNumber}</div>
       ),
     },
     {
-      key: 'admissionDate',
-      header: 'Admission Date',
-      accessor: 'admissionDate',
+      key: 'occupation',
+      header: 'Occupation',
+      accessor: 'occupation',
       render: (row) => (
-        <div className="text-sm text-gray-900">
-          {new Date(row.admissionDate).toLocaleDateString()}
-        </div>
+        <div className="text-sm font-medium text-gray-900">{row.occupation}</div>
       ),
     },
     {
@@ -130,7 +111,7 @@ const Students = () => {
 
   return (
     <div className="flex-1 flex flex-col min-h-0">
-      {/* Search, Grade Filter and Create Button Bar */}
+      {/* Search, Occupation Filter and Create Button Bar */}
       <div className="mb-4 flex items-center gap-4">
         <div className="flex-1 relative">
           <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
@@ -138,7 +119,7 @@ const Students = () => {
           </div>
           <input
             type="text"
-            placeholder="Search students..."
+            placeholder="Search guardians..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
             className="w-full h-12 pl-12 pr-4 bg-white border border-gray-200 rounded-xl text-sm text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary transition-all"
@@ -146,24 +127,24 @@ const Students = () => {
         </div>
         <div className="w-48 [&_button]:h-12 [&_button]:py-0">
           <FormSelect
-            value={selectedGrade}
-            onChange={(e) => setSelectedGrade(e.target.value)}
-            options={gradeOptions}
-            placeholder="All Grades"
-            clearOptionLabel="All Grades"
+            value={selectedOccupation}
+            onChange={(e) => setSelectedOccupation(e.target.value)}
+            options={occupationOptions}
+            placeholder="All Occupations"
+            clearOptionLabel="All Occupations"
           />
         </div>
-        <Link to="/students/create">
+        <Link to="/guardians/create">
           <Button className="w-auto px-6 whitespace-nowrap h-12 py-0 flex items-center justify-center">
-            Create Student
+            Create Guardian
           </Button>
         </Link>
       </div>
 
-      {/* Students Table */}
+      {/* Guardians Table */}
       <Table
         columns={columns}
-        data={studentsData}
+        data={guardiansData}
         keyField="id"
         showPagination={true}
         currentPage={1}
@@ -173,15 +154,15 @@ const Students = () => {
 
       {/* Delete Modal */}
       <DeleteModal
-        title="Delete Student"
+        title="Delete Guardian"
         isOpen={deleteModalOpen}
         onClose={handleDeleteCancel}
         onConfirm={handleDeleteConfirm}
-        message="Are you sure you want to delete this student? This action cannot be undone."
+        message="Are you sure you want to delete this guardian? This action cannot be undone."
       />
     </div>
   );
 };
 
-export default Students;
+export default Guardians;
 

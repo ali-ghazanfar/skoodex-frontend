@@ -8,7 +8,7 @@ import {
   religionOptions,
   bloodGroupOptions,
   guardianRelationshipOptions,
-} from '../../constants/studentOptions';
+} from '../../constants/constants';
 import Button from '../../components/Button';
 import FormInput from '../../components/FormInput';
 import FormSelect from '../../components/FormSelect';
@@ -197,16 +197,19 @@ const CreateStudent = () => {
           </div>
 
           {/* Form Actions */}
-          <div className="flex items-center gap-4 pt-4 border-t border-gray-200">
-            <Button
-              type="button"
-              onClick={() => navigate('/students')}
-              variant="secondary"
-              className="w-1/2"
-            >
-              Cancel
-            </Button>
-            <Button type="submit" disabled={isSubmitting} className="w-1/2">
+          <div className="grid grid-cols-4 gap-4 pt-4">
+            <div className="col-start-3">
+              <Button
+                type="button"
+                onClick={() => navigate('/students')}
+                variant="secondary"
+                className="w-full"
+              >
+                Cancel
+              </Button>
+            </div>
+
+            <Button type="submit" disabled={isSubmitting} className="w-full">
               {isSubmitting ? 'Creating...' : 'Create Student'}
             </Button>
           </div>

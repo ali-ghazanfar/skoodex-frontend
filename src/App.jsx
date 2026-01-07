@@ -4,6 +4,8 @@ import MainLayout from './layouts/MainLayout';
 import Login from './pages/Login/Login';
 import Students from './pages/students/Students';
 import CreateStudent from './pages/students/CreateStudent';
+import Guardians from './pages/guardians/Guardians';
+import CreateGuardian from './pages/guardians/CreateGuardian';
 
 function App() {
   return (
@@ -23,6 +25,22 @@ function App() {
           element={
             <MainLayout>
               <CreateStudent />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/guardians"
+          element={
+            <MainLayout>
+              <Guardians />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/guardians/create"
+          element={
+            <MainLayout>
+              <CreateGuardian />
             </MainLayout>
           }
         />

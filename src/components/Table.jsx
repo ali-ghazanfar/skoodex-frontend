@@ -20,7 +20,8 @@ const Table = ({
                 <th
                   key={column.key || index}
                   className={`px-6 py-4 text-xs font-bold text-gray-700 uppercase tracking-wider bg-gray-50 ${
-                    column.align === 'right' ? 'text-right' : 'text-left'
+                    column.align === 'right' ? 'text-right' : 
+                    column.align === 'center' ? 'text-center' : 'text-left'
                   }`}
                 >
                   {column.header}
@@ -46,7 +47,8 @@ const Table = ({
                       <td
                         key={cellKey}
                         className={`px-6 py-4 whitespace-nowrap ${
-                          column.align === 'right' ? 'text-right' : ''
+                          column.align === 'right' ? 'text-right' : 
+                          column.align === 'center' ? 'text-center' : ''
                         }`}
                       >
                         {column.render ? column.render(row, cellValue) : (
