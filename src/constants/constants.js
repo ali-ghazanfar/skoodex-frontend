@@ -156,6 +156,34 @@ export const maritalStatusOptions = [
   { value: 'Widowed', label: 'Widowed' },
 ];
 
+// Concession, Allowance, Deduction Options
+export const statusOptions = [
+  { value: 'Active', label: 'Active' },
+  { value: 'Inactive', label: 'Inactive' },
+];
+
+export const applicableToOptions = [
+  { value: 'Staff', label: 'Staff' },
+  { value: 'Student', label: 'Student' },
+  { value: 'Both', label: 'Both' },
+];
+
+export const allowanceTypeOptions = [
+  { value: 'Housing', label: 'Housing' },
+  { value: 'Transport', label: 'Transport' },
+  { value: 'Medical', label: 'Medical' },
+  { value: 'Education', label: 'Education' },
+  { value: 'Other', label: 'Other' },
+];
+
+export const deductionTypeOptions = [
+  { value: 'Tax', label: 'Tax' },
+  { value: 'Insurance', label: 'Insurance' },
+  { value: 'Loan', label: 'Loan' },
+  { value: 'Advance', label: 'Advance' },
+  { value: 'Other', label: 'Other' },
+];
+
 // Student Data
 export const studentsData = [
   {
@@ -478,6 +506,138 @@ export const staffData = [
     status: 'Active',
     gender: 'Male',
     profilePicture: null,
+  },
+];
+
+// Concession Data
+export const concessionsData = [
+  {
+    id: 1,
+    name: 'Sibling Discount',
+    amount: '5000.00',
+    description: 'Discount for siblings enrolled in the same school',
+    status: 'Active',
+    applicableTo: 'Student',
+  },
+  {
+    id: 2,
+    name: 'Merit Scholarship',
+    amount: '10000.00',
+    description: 'Scholarship for students with excellent academic performance',
+    status: 'Active',
+    applicableTo: 'Student',
+  },
+  {
+    id: 3,
+    name: 'Staff Child Discount',
+    amount: '7500.00',
+    description: 'Discount for children of school staff members',
+    status: 'Active',
+    applicableTo: 'Student',
+  },
+  {
+    id: 4,
+    name: 'Early Payment Discount',
+    amount: '2000.00',
+    description: 'Discount for early fee payment',
+    status: 'Active',
+    applicableTo: 'Student',
+  },
+  {
+    id: 5,
+    name: 'Need-Based Financial Aid',
+    amount: '15000.00',
+    description: 'Financial assistance for students in need',
+    status: 'Active',
+    applicableTo: 'Student',
+  },
+];
+
+// Allowance Data
+export const allowancesData = [
+  {
+    id: 1,
+    name: 'Housing Allowance',
+    amount: '25000.00',
+    description: 'Monthly housing allowance for staff',
+    status: 'Active',
+    type: 'Housing',
+  },
+  {
+    id: 2,
+    name: 'Transport Allowance',
+    amount: '10000.00',
+    description: 'Monthly transport allowance for staff',
+    status: 'Active',
+    type: 'Transport',
+  },
+  {
+    id: 3,
+    name: 'Medical Allowance',
+    amount: '15000.00',
+    description: 'Monthly medical allowance for staff',
+    status: 'Active',
+    type: 'Medical',
+  },
+  {
+    id: 4,
+    name: 'Education Allowance',
+    amount: '20000.00',
+    description: 'Education allowance for staff children',
+    status: 'Active',
+    type: 'Education',
+  },
+  {
+    id: 5,
+    name: 'Special Allowance',
+    amount: '5000.00',
+    description: 'Special monthly allowance',
+    status: 'Active',
+    type: 'Other',
+  },
+];
+
+// Deduction Data
+export const deductionsData = [
+  {
+    id: 1,
+    name: 'Income Tax',
+    amount: '5000.00',
+    description: 'Monthly income tax deduction',
+    status: 'Active',
+    type: 'Tax',
+  },
+  {
+    id: 2,
+    name: 'Health Insurance',
+    amount: '3000.00',
+    description: 'Monthly health insurance premium',
+    status: 'Active',
+    type: 'Insurance',
+  },
+  {
+    id: 3,
+    name: 'Provident Fund',
+    amount: '8000.00',
+    description: 'Monthly provident fund contribution',
+    status: 'Active',
+    type: 'Other',
+  },
+  {
+    id: 4,
+    name: 'Loan Deduction',
+    amount: '10000.00',
+    description: 'Monthly loan repayment',
+    status: 'Active',
+    type: 'Loan',
+  },
+  {
+    id: 5,
+    name: 'Advance Salary',
+    amount: '15000.00',
+    description: 'Advance salary deduction',
+    status: 'Active',
+    type: 'Advance',
   },
 ];
 

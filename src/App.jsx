@@ -8,6 +8,12 @@ import Guardians from './pages/guardians/Guardians';
 import CreateGuardian from './pages/guardians/CreateGuardian';
 import Staff from './pages/staff/Staff';
 import CreateStaff from './pages/staff/CreateStaff';
+import Concessions from './pages/concessions/Concessions';
+import CreateConcession from './pages/concessions/CreateConcession';
+import Allowances from './pages/allowances/Allowances';
+import CreateAllowance from './pages/allowances/CreateAllowance';
+import Deductions from './pages/deductions/Deductions';
+import CreateDeduction from './pages/deductions/CreateDeduction';
 
 function App() {
   return (
@@ -59,6 +65,54 @@ function App() {
           element={
             <MainLayout>
               <CreateStaff />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/concessions"
+          element={
+            <MainLayout>
+              <Concessions />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/concessions/create"
+          element={
+            <MainLayout>
+              <CreateConcession />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/allowances"
+          element={
+            <MainLayout>
+              <Allowances />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/allowances/create"
+          element={
+            <MainLayout>
+              <CreateAllowance />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/deductions"
+          element={
+            <MainLayout>
+              <Deductions />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/deductions/create"
+          element={
+            <MainLayout>
+              <CreateDeduction />
             </MainLayout>
           }
         />
