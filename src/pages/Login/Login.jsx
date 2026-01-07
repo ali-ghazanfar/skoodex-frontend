@@ -1,7 +1,18 @@
-import Input from '../components/Input';
-import Button from '../components/Button';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import FormInput from '../../components/FormInput';
+import Button from '../../components/Button';
 
 const Login = () => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    navigate('/');
+  };
+
   return (
     <div className="min-h-screen flex font-sans">
       {/* Left Side - Premium Aesthetic Background */}
@@ -53,19 +64,21 @@ const Login = () => {
         <div className="w-full max-w-md">
           <div className="mb-12">
             <h2 className="text-4xl font-black text-gray-900 mb-2 tracking-tight">
-              Let’s signed in
+              Let's signed in
             </h2>
             <p className="text-gray-500">
               Enter your credentials to access your school.
             </p>
           </div>
 
-          <form className="space-y-6">
-            <Input
+          <form className="space-y-6" onSubmit={handleSubmit}>
+            <FormInput
               label="Email Address"
               id="email"
               type="email"
               placeholder="name@school.com"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               required
             />
 
@@ -78,10 +91,12 @@ const Login = () => {
                   Forgot Password?
                 </a>
               </div>
-              <Input
+              <FormInput
                 id="password"
                 type="password"
                 placeholder="••••••••"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
             </div>
@@ -97,3 +112,4 @@ const Login = () => {
 };
 
 export default Login;
+
